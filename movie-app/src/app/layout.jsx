@@ -1,21 +1,20 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import './globals.css'
 import Header from './components/Header'
 import Providers from './Providers'
-import Tabs from './components/Tabs'
 
-const layout = ({children}) => {
+const Tabs = React.lazy(() => import('./components/Tabs'))
+
+const Layout = ({ children }) => {
   return (
-    <html lang='en'>
-        <body>
-          <Providers>
-          <Header/>
-          <Tabs/>
-            {children}
-            </Providers>
-        </body>
-    </html>
+    <Providers>
+      <Header />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Tabs />
+      </Suspense>
+      {children}
+    </Providers>
   )
 }
 
-export default layout
+export default Layout

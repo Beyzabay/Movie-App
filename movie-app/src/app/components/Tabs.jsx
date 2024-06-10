@@ -9,11 +9,11 @@ const Tabs = () => {
     const tabs = [
         {
             name: "En Populer",
-            url: "pupular"
+            url: "popular"
         },
         {
             name: "En Son",
-            url: "latest"
+            url: "now_playing"
         },
         {
             name: "Yakında Gelecekler",
@@ -21,7 +21,7 @@ const Tabs = () => {
         },
     ]
   return (
-    <div className='p-5 my-3 bg-gray-100 dark:bg-gray-900 flex items-center justify-center gap-7'>
+    <div className='p-5 my-3 bg-gray-100 dark:bg-gray-700 flex items-center justify-center gap-7'>
         {
             tabs.map((tab,i) => (
                 <Link className={`cursor-pointer hover:opacity-75 transition-opacity ${tab.url === genre ? "underline underline-offset-8 text-amber-600" : ""}`} href={`/?genre=${tab.url}`}>{tab.name}</Link>
